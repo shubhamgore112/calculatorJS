@@ -1,0 +1,56 @@
+.buttons{
+    border: solid black 1px;
+    /* min size for button 44 x 44 px recommended */
+    height:40px;
+    width: 50px;
+    background-color: aquamarine;
+}
+
+.calculator{
+    background-color: bisque;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.calc-container{
+    border: solid black 1px;
+    
+}
+
+#display{
+    padding: 5px;
+    width: 250px;
+    height: 50px;
+}
+
+#function-buttons{
+    height: 45px;
+    width: 250px;
+    /* gap: 100px 100px; */
+    border: solid black 1px;
+    background-color: aliceblue;
+    display: flex;
+    gap: 85px;
+}
+
+.delete-clear-button{
+    height: 45px;
+    width:80px;
+    background-color: aqua;
+    border: 1px solid black;
+}
+
+#buttons-panel{
+    padding: 10px 0px 10px 10px;
+    height: 200px;
+    width: 250px;
+    gap:10px;
+    border: solid black 1px;;
+    background-color: aqua;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+}
