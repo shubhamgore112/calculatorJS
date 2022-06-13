@@ -1,10 +1,20 @@
-.buttons{
+.operand{
     border: solid black 1px;
     /* min size for button 44 x 44 px recommended */
     height:40px;
     width: 50px;
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
 }
+
+.operator{
+    border: solid black 1px;
+    /* min size for button 44 x 44 px recommended */
+    height:40px;
+    width: 50px;
+    /* background-color: aquamarine;  */
+}
+
+
 
 .calculator{
     background-color: bisque;
