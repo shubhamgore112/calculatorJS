@@ -1,3 +1,9 @@
+// todo
+// del func-when it is pressed after entering an operator
+// operator pressed after entering 2 nos then answer should be displayed and answer should be firstNo
+// extra credit -  fraction display - multiple fractions shouldn't be added
+
+
 const display = document.getElementById("display");
 const buttonsPanel = document.getElementById("buttons-panel");
 const buttonsOperator = document.querySelectorAll(".operator");
@@ -9,15 +15,7 @@ const clrDel = document.querySelectorAll(".delete-clear-button");
 let firstNo = "";
 let secondNo = "";
 
-// buttonsOperator.forEach((button)=>{
-//     changeDisplay(button);
-// });
-// buttonsOperand.forEach((button) => {
-//     button.addEventListener('click', () => operandFunc(button.value));}
-// );
-
 for(let i=0; i<buttonsOperand.length; i++){
-    // console.log(buttonsOperand[i]);
     changeDisplay(buttonsOperand[i]);
 }
 
@@ -26,7 +24,7 @@ for(let i=0; i<buttonsOperator.length; i++){
 }
 
 for(let i=0; i<clrDel.length; i++){
-    if(clrDel[i]=="clr"){
+    if(clrDel[i].value=="clr"){
         clrScreen(clrDel[i]);
     }
     else{
@@ -41,16 +39,16 @@ function clrScreen(button){
         secondNo = "";
         op="";
         display.innerHTML="";
-        console.log("clr executed");
     })
 }
 function backspace(button){
-    console.log("del executed");
+    button.addEventListener("click",function(){
+        display.innerHTML = display.innerHTML.slice(0,-1);
+    })
 }
 
 // adding digits to display
 function changeDisplay(button){
-    // console.log(button);
     button.addEventListener("click",function(){
     let buttonVal = button.getAttribute("value");
     displayNumber(buttonVal);
@@ -60,17 +58,22 @@ function changeDisplay(button){
 function operatorFunc(button){
 
     button.addEventListener("click",function(){
-        if(button=="="){
-            console.log("= execited");
-            secondNo = display.innerHTML;
+        if(button.value=="."){
+            // don't display . if already exists
+                displayNumber(button.value);
+
+        }
+        else if(button.value=="="){
+            secondNo = parseFloat(display.innerHTML);
             let answer = operator(op,firstNo,secondNo);
-            console.log(answer);
+            // let frac = Number.parseFloat(answer).toFixed(4);
+            // console.log(frac);
             display.innerHTML=answer;
-        }else{
-            console.log("else executed");
-        op = button;
-        firstNo = display.innerHTML;
-        display.innerHTML="";
+        }
+        else{
+            op = button.value;
+            firstNo = parseFloat(display.innerHTML);
+            display.innerHTML="";
         }
     });   
 }
@@ -93,44 +96,27 @@ function multiply(x,y){
     return x*y;
 }
 function division(x,y){
+    if(y==0){
+        return "You Kiddin' me!"
+    }
     return x/y;
 }
 
 // call of operations
 function operator(op,x,y){
     switch(op){
-        case "+":
-            add(x,y);
-            break;
+        case '+':
+            return add(x,y);
         case "-":
-            subtract(x,y);
-            break;
+            return subtract(x,y);
         case "*":
-            multiply(x,y);
-            break;
+            return multiply(x,y);
         case "/":
-            division(x,y);
-            break;
+            return division(x,y);
         default:
             console.log("Symbol unindentified");
     }
 }
 
-// function to change display value
-// function populate_display(val){
-//     display.textContent=val;
-// }
+// function to check if . already exists or not, if yes dont allow user to enter again
 
-
-// else if(buttonVal=="="){
-//     let currNumber = display.innerHTML;
-//     display.innerHTML="";
-//     operator(op,currNumber,prevNumber);
-
-// }
-// else{
-// let prevNumber = display.innerHTML;
-// display.innerHTML="";
-// let op = buttonVal;
-
-// }
