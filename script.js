@@ -14,6 +14,8 @@ const clrDel = document.querySelectorAll(".delete-clear-button");
 // initialization
 let firstNo = "";
 let secondNo = "";
+let op="";
+let answer = "";
 
 for(let i=0; i<buttonsOperand.length; i++){
     changeDisplay(buttonsOperand[i]);
@@ -64,18 +66,26 @@ function operatorFunc(button){
 
         }
         else if(button.value=="="){
-            secondNo = parseFloat(display.innerHTML);
-            let answer = operator(op,firstNo,secondNo);
-            // let frac = Number.parseFloat(answer).toFixed(4);
-            // console.log(frac);
-            display.innerHTML=answer;
+           equality();
         }
+        // else if(op!=""){
+        //     equality();
+        // }
         else{
             op = button.value;
             firstNo = parseFloat(display.innerHTML);
             display.innerHTML="";
         }
     });   
+}
+
+function equality(){
+    secondNo = parseFloat(display.innerHTML);
+    answer = operator(op,firstNo,secondNo);
+    // let frac = Number.parseFloat(answer).toFixed(4);
+    // console.log(frac);
+    display.innerHTML=answer;
+    op="";
 }
 
 

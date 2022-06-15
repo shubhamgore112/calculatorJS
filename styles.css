@@ -1,65 +1,87 @@
+body{
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
 .operand{
     border: solid black 1px;
     /* min size for button 44 x 44 px recommended */
-    height:40px;
-    width: 50px;
+    height:60px;
+    width: 75px;
     /* background-color: aquamarine; */
+    border-radius: 10%
 }
 
 .operator{
     border: solid black 1px;
     /* min size for button 44 x 44 px recommended */
-    height:40px;
-    width: 50px;
+    height:60px;
+    width: 75px;
+    border-radius: 10%
     /* background-color: aquamarine;  */
 }
 
 
 
 .calculator{
-    background-color: bisque;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color:#aaa;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
+    width:380px;
+    height:500px;
+    border-radius: 5%;
+    gap: 10px;
+
 }
 
 .calc-container{
     border: solid black 1px;
+    background-color: #ccc;
+    width: 360px;
     
 }
 
 #display{
     padding: 5px;
-    width: 250px;
+    width: 350px;
     height: 50px;
+    background-color: #ddd;
+    /* border-radius: 5%; */
+    
 }
 
-#function-buttons{
-    height: 45px;
-    width: 250px;
-    /* gap: 100px 100px; */
-    border: solid black 1px;
-    background-color: aliceblue;
-    display: flex;
-    gap: 85px;
-}
 
 .delete-clear-button{
-    height: 45px;
-    width:80px;
-    background-color: aqua;
+    height:60px;
+    width: 100px;
+    margin-left: 10px;
+    margin-right: 20px;
+    /* background-color: aqua; */
     border: 1px solid black;
+    border-radius: 10%;
+}
+ 
+#del-clear{
+    height:65px;
+    display: flex;
+    justify-content: space-between;
+
 }
 
-#buttons-panel{
+.calc-container{
     padding: 10px 0px 10px 10px;
-    height: 200px;
-    width: 250px;
+    height: 300px;
+    width: 350px;
     gap:10px;
-    border: solid black 1px;;
-    background-color: aqua;
+    border: solid black 1px;
+    border-radius: 5%;
+    /* background-color: aqua; */
+    background-color: #ccc;
     display: flex;
     flex-wrap: wrap;
     align-content: space-between;
