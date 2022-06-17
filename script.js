@@ -81,7 +81,15 @@ function operatorFunc(button){
 
 function equality(){
     secondNo = parseFloat(display.innerHTML);
-    answer = operator(op,firstNo,secondNo);
+    
+    if(isNaN(firstNo)){
+        answer=secondNo;
+        console.log("loop exe");
+    }
+    else{
+        console.log("else exe");
+        console.log(firstNo);
+        answer = operator(op,firstNo,secondNo);}
     // let frac = Number.parseFloat(answer).toFixed(4);
     // console.log(frac);
     display.innerHTML=answer;
